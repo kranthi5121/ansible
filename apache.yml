@@ -1,6 +1,6 @@
 --- 
-- hosts:web
-  become:True
+- hosts: web
+  become: True
   tasks: 
     - name: Installing package
       apt: 
