@@ -1,18 +1,17 @@
 --- 
-- 
-  become: true
-  hosts: web
+- hosts:web
+  become:True
   tasks: 
-    - 
-      name: "Installing package"
-      yum: 
+    - name: Installing package
+      apt: 
         name: httpd
         state: present
-    - 
-      name: "Start Apache server"
-      service: "name:httpd state:started enabled:True"
-    - 
+    - name: Start Apache server
+      service:
+        name:httpd 
+        state:started 
+        enabled:True
+    - name: deploy static website
       copy: 
-        dest: /var/www/html/
         src: index.html
-      name: "deploy static website"
+        dest: /var/www/html/
