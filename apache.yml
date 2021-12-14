@@ -1,16 +1,18 @@
-- hosts: web
-  become: True
-  tasks:
-    - name: Installing package
-      yum:
-        name: "httpd"
-        state: "present"
-    - name: Start Apache server
-      service:
-         name:httpd
-         state: started
-         enabled: True
-    - name: deploy static website
-      copy:
-        src: index.html
+--- 
+- 
+  become: true
+  hosts: web
+  tasks: 
+    - 
+      name: "Installing package"
+      yum: 
+        name: httpd
+        state: present
+    - 
+      name: "Start Apache server"
+      service: "name:httpd state:started enabled:True"
+    - 
+      copy: 
         dest: /var/www/html/
+        src: index.html
+      name: "deploy static website"
