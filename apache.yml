@@ -4,13 +4,13 @@
   tasks: 
     - name: Installing package
       apt: 
-        name: httpd
+        name: apache2
         state: present
     - name: Start Apache server
       service:
-        name:httpd 
-        state:started 
-        enabled:True
+        name: apache2 
+        state: start 
+        enabled: True
     - name: deploy static website
       copy: 
         src: index.html
